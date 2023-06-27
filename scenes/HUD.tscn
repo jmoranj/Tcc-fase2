@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/fontTextos.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Resetar.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Sair.gd" type="Script" id=4]
+
+[node name="HUD" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.70639
+margin_top = -1.1376
+margin_right = -1.70639
+margin_bottom = -1.1376
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pontos" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -75.8526
+margin_right = -7.85263
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Pontos"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pause" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.70638
+margin_top = 0.568802
+margin_right = 1.70636
+margin_bottom = 0.568802
+color = Color( 0, 0, 0, 0.231373 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.0
+margin_top = -67.7015
+margin_right = 23.0
+margin_bottom = -52.7015
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0.788235, 1, 1 )
+text = "Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuPause" type="VBoxContainer" parent="Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.5
+margin_top = -28.0
+margin_right = 30.5
+margin_bottom = 28.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resetar" type="Button" parent="Pause/MenuPause"]
+margin_right = 61.0
+margin_bottom = 26.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Resetar"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sair" type="Button" parent="Pause/MenuPause"]
+margin_top = 30.0
+margin_right = 61.0
+margin_bottom = 56.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Sair"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="Pause/MenuPause/Resetar" to="Pause/MenuPause/Resetar" method="_on_Resetar_button_up"]
+[connection signal="button_up" from="Pause/MenuPause/Sair" to="Pause/MenuPause/Sair" method="_on_Sair_button_up"]
